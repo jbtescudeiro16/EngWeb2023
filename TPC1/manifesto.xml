@@ -15,6 +15,10 @@
         <p>A segunda parte do TPC consistia em desenvolver uma página web cujo tópico era uma palavra começada pela letra I. O tópico escolhido foi a palavra: <b>Itália</b></p>
     </resumo>
     <resultados>
-        
+        <resultado path="/Aula/mapa.py">Gerador automático em python da página Web </resultado>
+        <resultado path="/Aula/mapa.json">Dataset json que contém as cidades e ligações do mapa virtual</resultado>
+        <resultado path="/Aula/mapavirtual.html">Ficheiro HTML resultado</resultado>
+        <resultado path="/Itália/italia">Página HTML acerca do tópico escolhido: Itália</resultado>
+        <resultado path="/Itália/files/">Pasta que contém imagens utilizadas pelo ficheiro HTML</resultado>
     </resultados>
 </manifesto>
