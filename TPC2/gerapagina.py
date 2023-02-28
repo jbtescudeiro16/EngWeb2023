@@ -15,6 +15,11 @@ city.sort(key=aux)
 
 ligacoes = mapa["ligações"]
 
+districts = list(set([x["distrito"] for x in city]))
+districts.sort()
+
+
+
 
 
 def convert(id):
@@ -50,6 +55,58 @@ def getconnections(id):
         res += f"<p><a href=/{dest[0]}>{convert(dest[0])}</a>: {dest[1]}</p>"
 
     return res
+
+
+def getcitiesDistrict(distrito):
+
+    res = []
+
+    for c in city:
+
+        if (c["distrito"] == distrito):
+
+            res.append((c["id"],c["nome"]))
+
+    return res
+
+
+def geraHTMLIndex():
+
+    res = """<!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Cidades</title>
+            </head>
+            <body>\n"""
+
+    for d in districts:
+
+        res += f"<h1>{d}</h1><ul>\n"
+
+        cidades_aux = getcitiesDistrict(d)
+
+        for c_id,c_nome in cidades_aux:
+
+            res += f"<li><a href='/{c_id}' target='blank'>{c_nome}</a></li>\n"
+
+        res += "</ul>"
+
+    res += "</body></html>"
+
+    return res
+
+def geraindex():
+
+    f = open("index.html", "w")
+
+    f.write(geraHTMLIndex())
+
+    f.close()
+
+
 
 #falta as ligações
 def gerahtmlCity(cidade):
@@ -98,6 +155,7 @@ def geraAll():
 
 
 def main():
+    geraindex()
     geraAll()
 
 main()
