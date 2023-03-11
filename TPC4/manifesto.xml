@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+    <meta>
+        <título>RPCW - TPC4</título>
+        <data>2023-03-11</data>
+        <autor>
+            <nome>João Bernardo Teixeira Escudeiro</nome>
+            <id>A96075</id>
+            <gitlink>https://github.com/jbtescudeiro16/EngWeb2023</gitlink>
+        </autor>
+        <uc>EW</uc>
+    </meta>
+    <resumo>
+        <p>Este TPC consite na criação de um serviço semelhante a uma TODO-LIST.</p>
+        <p>Para a resolução do TPC, seria necessária a criação de um formato para o dataset que para a informação dos campos de cada entidade .</p>
+        <p>Foram criados diversos ficheiros js que geram dinamicamente páginas html de modo a satisfazer os requisitos solicitados para este TPC.</p>
+        <p>Foi necessário codificar um servidor nodejs e utilizar axios de modo a que cada requisito solicitado .</p>
+        <p>Foram utilizados ficheiros css de modo a personalizar as páginas web criadas.</p>
+        <p>O resultado final é um serviço em que é possivel adicionar tarefas indicando uma data limite , descrição e nome da pessoa para realizar a tarefa.</p>
+        <p>Existem duas listas de tarefas "Concluídas e não Concluídas. </p>
+        <p>É possível editar o estado das tarefas e marcá-las como concluidas ou apagar as mesmas. </p>
+    </resumo>
+    <resultados>
+        <resultado path="dataset.json">Ficheiro auxiliar para guardar a informação.</resultado>
+        <resultado path="templates.js">Ficheiro js que gera uma página html mediante o conteúdo do dataset.</resultado>
+        <resultado path="server.js">Servidor nodejs do serviço de consulta</resultado>
+        <resultado path="/public/w3.css">Ficheiro css utilizado em algumas páginas html.</resultado>
+    </resultados>
+</manifesto>
