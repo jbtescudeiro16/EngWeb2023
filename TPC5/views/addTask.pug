@@ -1,0 +1,6 @@
+extends layout
+
+block content
+  h1  Task Added#{a.id}
+  pre= JSON.stringify(a) 
+  a(href="/") Return

@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  form.w3-container.w3-card-4.w3-light-grey.w3-text-orange.w3-margin(id="addTask" method="POST")
+    fieldset.w3-row.w3-section.w3-green 
+        label Nome
+        input.w3-input.w3-border(type="text" name="nome_parceiro" required )
+        label Descrição
+        input.w3-input.w3-border(type="text" name="descrição" required)
+        label data
+        input.w3-input.w3-border(type="date" name="due_date" require )
+        button.w3-button.w3-block.w3-section.w3-grey.w3-ripple(type="submit") Register
+  .w3-half
+    .w3-container.w3-red.w3-center
+      h1 TODO TASKS
+    each t in tdone
+        .w3-container
+          .w3-panel.w3-pale-red.w3-bottombar.w3-border-red.w3-border      
+            p Person : #{t.nome_parceiro}
+            p DueDatee :#{t.due_date}
+            p Description : #{t.descrição} 
+            .w3-right-align  
+              button.w3-button.w3-grey.w3-hover-red.w3-card-4(type="submit" form="delete"+t.id) Delete
+              button.w3-button.w3-green.w3-hover-green.w3-card-4(type="submit" form="complete"+t.id) Complete
+              form(id="delete"+t.id method="POST" action="delete")
+                input(type="hidden" name="id" value=t.id)
+              form(id="complete"+t.id method="POST" action="complete")
+                input(type="hidden" name="id" value=t.id)
+                input(type="hidden" name="nome_parceiro" value=t.nome_parceiro)
+                input(type="hidden" name="due_date" value=t.due_date)
+                input(type="hidden" name="descrição" value=t.descrição)
+                input(type="hidden" name="done" value="yes")
+                 
+            
+  .w3-half
+    .w3-container.w3-green.w3-center
+      h1 Done TASKS
+    each t in notdone
+        .w3-container
+          .w3-panel.w3-pale-green.w3-bottombar.w3-border-green.w3-border      
+            p Person : #{t.nome_parceiro}
+            p DueDatee :#{t.due_date}
+            p Description : #{t.descrição} 
+            .w3-right-align  
+              button.w3-button.w3-grey.w3-hover-red.w3-card-4(type="submit" form="delete"+t.id) Delete
+              form(id="delete"+t.id method="POST" action="delete")
+                input(type="hidden" name="id" value=t.id)
+                
+              
